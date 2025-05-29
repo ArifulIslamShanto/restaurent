@@ -1,4 +1,11 @@
 <!-- menu-order.html -->
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,22 +15,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script>
-        function updateTotal() {
-            let basePrice = parseFloat(document.querySelector('#basePrice').textContent);
-            let total = basePrice;
+      function updateTotal() {
+    let basePrice = parseFloat(document.querySelector('#basePrice').textContent);
+    let total = basePrice;
 
-            document.querySelectorAll('input.addon:checked').forEach(addon => {
-                total += parseFloat(addon.value);
-            });
+    let selectedAddons = [];
 
-            const serviceCharge = total * 0.05;
-            const vat = total * 0.10;
-            total += serviceCharge + vat;
+    document.querySelectorAll('input.addon:checked').forEach(addon => {
+        total += parseFloat(addon.value);
+        selectedAddons.push(addon.nextElementSibling.textContent.trim());
+    });
 
-            document.querySelector('#serviceCharge').textContent = serviceCharge.toFixed(2);
-            document.querySelector('#vat').textContent = vat.toFixed(2);
-            document.querySelector('#totalPrice').textContent = total.toFixed(2);
-        }
+    const serviceCharge = total * 0.05;
+    const vat = total * 0.10;
+    total += serviceCharge + vat;
+
+    document.querySelector('#serviceCharge').textContent = serviceCharge.toFixed(2);
+    document.querySelector('#vat').textContent = vat.toFixed(2);
+    document.querySelector('#totalPrice').textContent = total.toFixed(2);
+
+    // Set hidden input values
+    document.querySelector('#addonsInput').value = selectedAddons.join(', ');
+    document.querySelector('#totalAmountInput').value = total.toFixed(2);
+}
+
 
         document.addEventListener('DOMContentLoaded', function () {
             updateTotal();
@@ -49,7 +64,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav mx-4">
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Home</a>
+                            <a class="nav-link " href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="menu.html">Menu</a>
@@ -84,8 +99,12 @@
 
         <!-- Add-ons and Checkout -->
         <div class="col-lg-6">
-            <form action="checkout.html" method="GET">
+            <form action="place-order.php" method="post">
                 <h5>Add-ons:</h5>
+                <input type="hidden" name="food_item" value="Veggie Pasta">
+                <input type="hidden" name="addons" id="addonsInput">
+                <input type="hidden" name="total_amount" id="totalAmountInput">
+
                 <div class="form-check">
                     <input class="form-check-input addon" type="checkbox" value="1.50" id="extraCheese">
                     <label class="form-check-label" for="extraCheese">Extra Cheese ($1.50)</label>
