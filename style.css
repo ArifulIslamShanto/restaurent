@@ -53,3 +53,148 @@ footer {
     color: white;       
     padding: 20px;    
   }
+
+  body.admin {
+    background: #fff5f5;
+    color: #4a1a1a;
+  }
+  
+
+  .admin header {
+    background-color: #a83232;
+    color: white;
+  }
+  
+  .admin header h1 {
+    font-weight: 700;
+  }
+  
+  .admin header nav a {
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .admin header nav a:hover {
+    text-decoration: underline;
+    color: #f8c5c5;
+  }
+  
+
+  .admin main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+
+  .admin h2, .admin h3 {
+    color: #a83232;
+    margin-bottom: 1rem;
+  }
+  
+ 
+  .admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(168, 50, 50, 0.2);
+  }
+  
+  .admin thead {
+    background-color: #a83232;
+    color: white;
+  }
+  
+  .admin th, .admin td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f5c6c6;
+    text-align: left;
+  }
+  
+  .admin tbody tr:hover {
+    background-color: #f9dede;
+  }
+  
+
+  .admin select.status-select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #a83232;
+    background-color: #fff5f5;
+    font-weight: 600;
+    color: #a83232;
+    cursor: pointer;
+  }
+  
+  
+  .admin .sales-summary {
+    background-color: #fbeaea;
+    border: 2px solid #a83232;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #a83232;
+    width: fit-content;
+  }
+
+ 
+.order-item {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .order-item:last-child {
+    border-bottom: none;
+  }
+  
+  .order-info {
+    max-width: 70%;
+  }
+  
+  .order-food {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .order-status {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .order-amount {
+    font-weight: 700;
+    color: #27ae60;
+  }
+  
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #ecf0f1;
+  }
+  #logo-text{
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: normal;
+  }
+
+  

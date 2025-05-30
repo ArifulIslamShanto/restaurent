@@ -44,9 +44,6 @@ $orderHistoryQuery = $conn->query("SELECT * FROM orders WHERE user_id = $user_id
                             <a class="nav-link" href="menu.html">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Orders</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="logout.php">logout</a>
                         </li>
                     </ul>
